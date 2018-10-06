@@ -1,0 +1,275 @@
+#Test with: http://editor.swagger.io/
+
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Research MS
+  description: Ruby + MongoDB
+  license:
+    name: Software Architecture 2018-II
+host: 0.0.0.0:3000
+basePath: /groups/
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /groups:
+    post:
+      summary: Creates a new research group
+      operationId: createGroup
+      parameters:
+        - name: group
+          in: body
+          required: true
+          description: Group Object
+          schema:
+            $ref: '#/definitions/GroupInput'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '422':
+          description: Unprocessable entity
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+    get:
+      summary: Returns all groups
+      operationId: getAllCourses
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/CoursesList'
+        '404':
+          description: Not found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+  /group/{code}:
+    get:
+      summary: Returns a group with the given id
+      operationId: getCourseByCode
+      parameters:
+        - name: code
+          in: path
+          description: The code of the course to be returned
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/Course'
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+    put:
+      summary: Updates a group with the given id
+      operationId: updateGroup
+      parameters:
+        - name: code
+          in: path
+          description: The content of the group to be updated
+          required: true
+          type: string
+        - name: group
+          in: body
+          required: true
+          description: Course Object
+          schema:
+            $ref: '#/definitions/GroupInput'
+      responses:
+        '400':
+          description: Bad request
+        '204':
+          description: No Content
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+    delete:
+      summary: Deletes a group with the given code
+      operationId: deleteCourse
+      parameters:
+        - name: code
+          in: path
+          description: The code of the group to be deleted
+          required: true
+          type: string
+      responses:
+        '204':
+          description: No content
+        '404':
+          description: Not Found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        
+        '500':
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+definitions:
+
+  # Group
+  Course:
+    type: object
+    properties:
+      topic:
+        type: array
+        items:
+          type: string
+      website:
+        type: string
+      field:
+        type: array
+        items:
+          type: string
+      logo:
+        type: string
+      university:
+        type: array
+        items:
+          type: string
+      status:
+        type: string
+      skill:
+        type: array
+        items:
+          type: string
+      members:  
+        type: array
+        items:  
+          type: string
+      director:
+        type: string
+      leader:
+        type: string
+      project: 
+        type: array
+        items:
+          type: string
+          
+
+
+  GroupInput:
+    type: object
+    properties:
+      topic:
+        type: array
+        items:
+          type: string
+      website:
+        type: string
+      field:
+        type: array
+        items:
+          type: string
+      logo:
+        type: string
+      university:
+        type: array
+        items:
+          type: string
+      status:
+        type: string
+      skill:
+        type: array
+        items:
+          type: string
+      members:  
+        type: array
+        items:  
+          type: string
+      director:
+        type: string
+      leader:
+        type: string
+      project: 
+        type: array
+        items:
+          type: string
+
+  CoursesList:
+    type: object
+    required:
+      - total
+      - list
+    properties:
+      total:
+        type: number
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Course'
+
+# Errors
+  ErrorModel:
+    type: object
+    required:
+      - topic
+      - field
+      - university
+      - members
+      - director
+      - leader
+    properties:
+      topic:
+        type: array
+        items:
+          type: string
+      website:
+        type: string
+      field:
+        type: array
+        items:
+          type: string
+      logo:
+        type: string
+      university:
+        type: array
+        items:
+          type: string
+      status:
+        type: string
+      skill:
+        type: array
+        items:
+          type: string
+      members:  
+        type: array
+        items:  
+          type: string
+      director:
+        type: string
+      leader:
+        type: string
+      project: 
+        type: array
+        items:
+          type: string

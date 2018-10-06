@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: 
+  website: MyString
+  field: 
+  logo: MyString
+  university: 
+  status: MyString
+  skill: 
+  members: 
+  director: MyString
+  leader: MyString
+  description: MyString
+
+two:
+  topic: 
+  website: MyString
+  field: 
+  logo: MyString
+  university: 
+  status: MyString
+  skill: 
+  members: 
+  director: MyString
+  leader: MyString
+  description: MyString
