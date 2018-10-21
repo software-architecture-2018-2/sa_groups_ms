@@ -12,5 +12,5 @@ class Group
   field :leader, type: String
   field :description, type: String
   field :project, type: Array
-  validates_presence_of :topic, :field, :university , :members , :director , :leader
+  validates_presence_of :topic, :field, :university , :members , :director , :leader, :project
 end
