@@ -16,7 +16,7 @@ services:
       # - 'redis'
     build: .
     ports:
-      - '3500:3000'
+      - '3000:3000'
     volumes:
       - '.:/research'
     
