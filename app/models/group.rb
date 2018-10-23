@@ -1,5 +1,6 @@
 class Group
   include Mongoid::Document
+  field :name, type: String
   field :topic, type: Array
   field :website, type: String
   field :field, type: Array
@@ -12,5 +13,5 @@ class Group
   field :leader, type: String
   field :description, type: String
   field :project, type: Array
-  validates_presence_of :topic, :field, :university , :members , :director , :leader, :project
+  validates_presence_of :topic, :field, :university , :members , :director , :leader, :project, :name
 end
