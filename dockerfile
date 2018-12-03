@@ -8,3 +8,4 @@ COPY Gemfile.lock /research/Gemfile.lock
 RUN   bundle install
 COPY . /research
 CMD ["rails", "s"]
+EXPOSE 3000
