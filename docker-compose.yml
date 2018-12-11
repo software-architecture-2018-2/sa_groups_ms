@@ -12,7 +12,7 @@ services:
 
   web:
     depends_on:
-      - 'mongo'
+      - 'monguito'
       # - 'redis'
     build: .
     ports:
