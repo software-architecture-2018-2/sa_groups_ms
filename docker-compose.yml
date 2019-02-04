@@ -9,6 +9,8 @@ services:
       - RACK_ENV=production
     ports:
       - "4000:27017"
+    labels:
+    io.rancher.scheduler.affinity:host_label: key2=value2
 
   web:
     depends_on:
