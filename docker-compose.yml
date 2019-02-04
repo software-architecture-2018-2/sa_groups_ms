@@ -9,6 +9,12 @@ services:
       - RACK_ENV=production
     ports:
       - "4000:27017"
+    labels:
+      io.rancher.scheduler.affinity:host_label: key1=par1
+    
+    
+
+
     
 
   web:
@@ -21,7 +27,7 @@ services:
     volumes:
       - '.:/research'
     labels:
-      io.rancher.scheduler.affinity:host_label: key2=par2
+      io.rancher.scheduler.affinity:host_label: key1=par1
     
     
 
