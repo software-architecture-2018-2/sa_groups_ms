@@ -21,7 +21,7 @@ services:
     volumes:
       - '.:/research'
     labels:
-      io.rancher.scheduler.affinity:host_label: key2=value2
+      io.rancher.scheduler.affinity:host_label: key2=par2
     
     
 
