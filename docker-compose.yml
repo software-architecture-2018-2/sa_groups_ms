@@ -11,11 +11,6 @@ services:
       - "4000:27017"
     labels:
       io.rancher.scheduler.affinity:host_label: key1=par1
-    
-    
-
-
-    
 
   web:
     depends_on:
